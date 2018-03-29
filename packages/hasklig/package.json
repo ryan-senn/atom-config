@@ -1,0 +1,66 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/d-118226-22777-xl7ntp.t9lj9vn29/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/d-118226-22777-xl7ntp.t9lj9vn29/package.tgz",
+        "spec": "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/d-118226-22777-xl7ntp.t9lj9vn29/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/apm-install-dir-118226-22777-tfp8oe.1d5wnx9a4i"
+    ]
+  ],
+  "_from": "../d-118226-22777-xl7ntp.t9lj9vn29/package.tgz",
+  "_id": "hasklig@0.4.0",
+  "_inCache": true,
+  "_location": "/hasklig",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/d-118226-22777-xl7ntp.t9lj9vn29/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/d-118226-22777-xl7ntp.t9lj9vn29/package.tgz",
+    "spec": "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/d-118226-22777-xl7ntp.t9lj9vn29/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-118226-22777-xl7ntp.t9lj9vn29/package.tgz",
+  "_shasum": "e61479d654fa67dd89602126fcc06df9da652af7",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/d-118226-22777-xl7ntp.t9lj9vn29/package.tgz",
+  "_where": "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/apm-install-dir-118226-22777-tfp8oe.1d5wnx9a4i",
+  "bugs": {
+    "url": "https://github.com/adilparvez/atom-hasklig/issues"
+  },
+  "dependencies": {},
+  "description": "Ligatures for code.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/adilparvez/atom-hasklig#readme",
+  "keywords": [
+    "font",
+    "ligature",
+    "haskell",
+    "purescript",
+    "elm"
+  ],
+  "license": "MIT",
+  "main": "./lib/main",
+  "name": "hasklig",
+  "optionalDependencies": {},
+  "readme": "# atom-hasklig\n\nThis package bundles the [Hasklig](https://github.com/i-tu/Hasklig/) font for atom.\n\nAll weights of the font are included.\n\nLigatures can be enabled per scope, using rules to match scopes.\n\nRules are applied left to right, for example\n- `*` = enable for all scopes\n- `*, not:text.*` = enable for all scopes, except for scopes under text\n- `source.haskell, source.purescript, source.elm` = enable for haskell, purescript, and elm\n- `*, not:source.*, source.js.*` = enable for all scopes, except for scopes under source, and enable for scopes under source.js\n\nLigatures are disabled in strings.\n\n![screenshot-editor](https://raw.githubusercontent.com/adilparvez/atom-hasklig/master/screenshot-editor.png)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adilparvez/atom-hasklig.git"
+  },
+  "version": "0.4.0"
+}

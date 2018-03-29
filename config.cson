@@ -1,0 +1,16 @@
+"*":
+  "advanced-open-file": {}
+  "atom-ide-ui":
+    use: {}
+  core:
+    allowPendingPaneItems: false
+    disabledPackages: [
+      "tabs"
+      "status-bar"
+    ]
+  editor:
+    fontFamily: "FiraCode-Light"
+    lineHeight: 1.8
+    tabLength: 4
+  "exception-reporting":
+    userId: "694db122-05c2-4d5a-b75a-6c1a0d53842f"
