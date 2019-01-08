@@ -1,0 +1,123 @@
+html
+  box-sizing: border-box
+  -ms-overflow-style: scrollbar
+
+*,
+*::before,
+*::after
+  box-sizing: inherit
+
+@import "./node_modules/bootstrap/scss/functions"
+@import "./node_modules/bootstrap/scss/variables"
+
+@import "./node_modules/bootstrap/scss/mixins/breakpoints"
+@import "./node_modules/bootstrap/scss/mixins/grid-framework"
+@import "./node_modules/bootstrap/scss/mixins/grid"
+
+@import "./node_modules/bootstrap/scss/grid"
+
+@font-face
+   font-family: 'Open Sans Light'
+   font-style: normal
+   font-weight: 300
+   src: url(https://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTRa1RVmPjeKy21_GQJaLlJI.woff) format('woff')
+
+*
+    font-family: "Open Sans"
+
+a
+    text-decoration: none
+
+body>header
+    position: absolute
+    left: 0
+    right: 0
+    z-index: 100
+
+    >nav>ul
+        margin: 0
+        padding: 12px 0
+        list-style: none
+        display: flex
+        align-items: center
+
+        li
+            a
+                color: #ffffff
+
+                @include media-breakpoint-down(xs)
+                    font-size: 0.8rem
+
+            &.logo
+                a
+                    font-weight: 900
+                    font-size: 2rem
+
+            &.menu
+                flex: 1
+
+                @include media-breakpoint-up(sm)
+                    margin-left: 50px
+
+                @include media-breakpoint-up(md)
+                    margin-left: 100px
+
+                a
+                    margin-left: 20px
+
+                    &:first-child
+                        margin-left: 30px
+
+            &.auth
+                a
+                    border: 2px solid #ffffff
+                    padding: 8px 20px
+                    border-radius: 4px
+
+body>main
+    >header
+        padding-top: 100px
+
+        &#intro
+            color: #ffffff
+            position: relative
+
+            *
+                font-family: "Open Sans Light"
+                font-weight: 100
+
+            h1
+                font-size: 3rem
+
+            p
+                line-height: 2
+
+            div#intro-background
+                position: absolute
+                top: 0
+                bottom: 0
+                left: 0
+                right: 0
+                overflow: hidden
+                transform: skewY(-12deg)
+                transform-origin: 0
+                background: linear-gradient(150deg, #53f 15%, #05d5ff 94%)
+
+div.app-illustrations
+    transform: rotate(-12deg)
+    margin-left: 100px
+
+div.app-illustration
+    display: flex
+    align-items: center
+    justify-content: center
+    box-shadow: inset 0 4px 7px 1px #fff, inset 0 -5px 20px rgba(173,186,204,.25), 0 2px 6px rgba(0,21,64,.14), 0 10px 20px rgba(0,21,64,.05)
+    border-radius: 38px
+    background: #fff
+
+    img
+        border: 1px solid #333333
+
+    &.mobile
+        width: 375px
+        padding: 50px 10px

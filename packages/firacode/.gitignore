@@ -1,0 +1,7 @@
+*.zip
+FiraCode_liga.glyphs
+FiraCode_mess.glyphs
+target
+clojure/*.edn
+FiraCode\ (Autosaved).glyphs
+.cpcache

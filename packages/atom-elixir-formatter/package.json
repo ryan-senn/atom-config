@@ -1,0 +1,52 @@
+{
+  "_from": "https://www.atom.io/api/packages/atom-elixir-formatter/versions/1.0.6/tarball",
+  "_id": "atom-elixir-formatter@1.0.6",
+  "_inBundle": false,
+  "_integrity": "sha512-iQMhtz5Xmx/c2+umsIPkzZKvkQ+fi2RoA2yBIez+8dEkqg5GQNNJl2XZGlaI96Ro6Z306DE5Mze4Eccgpg4+8A==",
+  "_location": "/atom-elixir-formatter",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/atom-elixir-formatter/versions/1.0.6/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/atom-elixir-formatter/versions/1.0.6/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/atom-elixir-formatter/versions/1.0.6/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/atom-elixir-formatter/versions/1.0.6/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/atom-elixir-formatter/versions/1.0.6/tarball",
+  "_shasum": "d077b9c646052c4729a33473e5ed21b31572afd7",
+  "_spec": "https://www.atom.io/api/packages/atom-elixir-formatter/versions/1.0.6/tarball",
+  "_where": "/private/var/folders/m8/40cwfsss7c1dc98by346vzmw0000gn/T/apm-install-dir-11902-24079-18k0l96.q07si",
+  "activationCommands": {
+    "atom-workspace": "atom-elixir-formatter:format"
+  },
+  "activationHooks": [
+    "language-elixir:grammar-used"
+  ],
+  "bugs": {
+    "url": "https://github.com/rgreenjr/atom-elixir-formatter/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Elixir source code formatter for the Atom editor.",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/rgreenjr/atom-elixir-formatter#readme",
+  "keywords": [
+    "elixir",
+    "formatter"
+  ],
+  "license": "MIT",
+  "main": "./lib/main",
+  "name": "atom-elixir-formatter",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rgreenjr/atom-elixir-formatter.git"
+  },
+  "version": "1.0.6"
+}

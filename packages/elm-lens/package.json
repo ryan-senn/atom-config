@@ -1,0 +1,56 @@
+{
+  "_from": "https://www.atom.io/api/packages/elm-lens/versions/0.3.0/tarball",
+  "_id": "elm-lens@0.3.0",
+  "_inBundle": false,
+  "_integrity": "sha512-vV4/WjbAiQ1zo4LiC+2Lx8KcHAm9uW0LMljDj99f3XnxR+fVJq4xJOY+ly11Iew4v2Zr39s8h9K29eZP3fcmhg==",
+  "_location": "/elm-lens",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/elm-lens/versions/0.3.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/elm-lens/versions/0.3.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/elm-lens/versions/0.3.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/elm-lens/versions/0.3.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/elm-lens/versions/0.3.0/tarball",
+  "_shasum": "da2badd343eb62cb351218b204d19f8321ad6939",
+  "_spec": "https://www.atom.io/api/packages/elm-lens/versions/0.3.0/tarball",
+  "_where": "/private/var/folders/m8/40cwfsss7c1dc98by346vzmw0000gn/T/apm-install-dir-11901-1717-1pqgn5r.147bk",
+  "activationCommands": {},
+  "bugs": {
+    "url": "https://github.com/mbuscemi/elm-lens/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "jquery": "^3.2.1"
+  },
+  "deprecated": false,
+  "description": "Elm code visualizations for maximum productivity",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/mbuscemi/elm-lens",
+  "keywords": [
+    "elm",
+    "tool",
+    "tools",
+    "tooling",
+    "meta",
+    "metadata"
+  ],
+  "license": "MIT",
+  "main": "./lib/elm-lens",
+  "name": "elm-lens",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbuscemi/elm-lens.git"
+  },
+  "scripts": {
+    "test": "cd elm ; elm-test"
+  },
+  "version": "0.3.0"
+}

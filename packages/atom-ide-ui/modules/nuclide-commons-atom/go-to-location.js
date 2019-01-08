@@ -1,11 +1,35 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.goToLocation = undefined;
+exports.goToLocation = goToLocation;
+exports.goToLocationInEditor = goToLocationInEditor;
+exports.observeNavigatingEditors = observeNavigatingEditors;
 
-var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
+function _log4js() {
+  const data = require("log4js");
+
+  _log4js = function () {
+    return data;
+  };
+
+  return data;
+}
+
+var _RxMin = require("rxjs/bundles/Rx.min.js");
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ *  strict-local
+ * @format
+ */
 
 /**
  * Opens the given file.
@@ -29,96 +53,80 @@ var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
  *
  * In these cases, you may disable the lint rule against `atom.workspace.open` by adding the
  * following comment above its use:
- * // eslint-disable-next-line rulesdir/atom-apis
+ * // eslint-disable-next-line nuclide-internal/atom-apis
  */
-let goToLocation = exports.goToLocation = (() => {
-  var _ref8 = (0, _asyncToGenerator.default)(function* (file, options) {
-    var _ref, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7;
+async function goToLocation(file, options) {
+  var _ref, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7;
 
-    const center_ = (_ref = options) != null ? _ref.center : _ref;
-    const center = center_ == null ? true : center_;
-    const moveCursor_ = (_ref2 = options) != null ? _ref2.moveCursor : _ref2;
-    const moveCursor = moveCursor_ == null ? true : moveCursor_;
-    const activatePane_ = (_ref3 = options) != null ? _ref3.activatePane : _ref3;
-    const activatePane = activatePane_ == null ? true : activatePane_;
-    const activateItem = (_ref4 = options) != null ? _ref4.activateItem : _ref4;
-    const line = (_ref5 = options) != null ? _ref5.line : _ref5;
-    const column = (_ref6 = options) != null ? _ref6.column : _ref6;
-    const pending = (_ref7 = options) != null ? _ref7.pending : _ref7;
+  const center_ = (_ref = options) != null ? _ref.center : _ref;
+  const center = center_ == null ? true : center_;
+  const moveCursor_ = (_ref2 = options) != null ? _ref2.moveCursor : _ref2;
+  const moveCursor = moveCursor_ == null ? true : moveCursor_;
+  const activatePane_ = (_ref3 = options) != null ? _ref3.activatePane : _ref3;
+  const activatePane = activatePane_ == null ? true : activatePane_;
+  const activateItem = (_ref4 = options) != null ? _ref4.activateItem : _ref4;
+  const line = (_ref5 = options) != null ? _ref5.line : _ref5;
+  const column = (_ref6 = options) != null ? _ref6.column : _ref6;
+  const pending = (_ref7 = options) != null ? _ref7.pending : _ref7; // Prefer going to the current editor rather than the leftmost editor.
 
-    // Prefer going to the current editor rather than the leftmost editor.
-    const currentEditor = atom.workspace.getActiveTextEditor();
-    if (currentEditor != null && currentEditor.getPath() === file) {
-      const paneContainer = atom.workspace.paneContainerForItem(currentEditor);
+  const currentEditor = atom.workspace.getActiveTextEditor();
 
-      if (!(paneContainer != null)) {
-        throw new Error('Invariant violation: "paneContainer != null"');
-      }
+  if (currentEditor != null && currentEditor.getPath() === file) {
+    const paneContainer = atom.workspace.paneContainerForItem(currentEditor);
 
-      if (activatePane) {
-        paneContainer.activate();
-      }
-      if (line != null) {
-        goToLocationInEditor(currentEditor, {
-          line,
-          column: column == null ? 0 : column,
-          center,
-          moveCursor
-        });
-      } else {
-        if (!(column == null)) {
-          throw new Error('goToLocation: Cannot specify just column');
-        }
-      }
-      return currentEditor;
-    } else {
-      // Obviously, calling goToLocation isn't a viable alternative here :P
-      // eslint-disable-next-line rulesdir/atom-apis
-      const editor = yield atom.workspace.open(file, {
-        initialLine: line,
-        initialColumn: column,
-        searchAllPanes: true,
-        activatePane,
-        activateItem,
-        pending
-      });
-
-      if (center && line != null) {
-        editor.scrollToBufferPosition([line, column], { center: true });
-      }
-      return editor;
+    if (!(paneContainer != null)) {
+      throw new Error("Invariant violation: \"paneContainer != null\"");
     }
-  });
 
-  return function goToLocation(_x, _x2) {
-    return _ref8.apply(this, arguments);
-  };
-})(); /**
-       * Copyright (c) 2017-present, Facebook, Inc.
-       * All rights reserved.
-       *
-       * This source code is licensed under the BSD-style license found in the
-       * LICENSE file in the root directory of this source tree. An additional grant
-       * of patent rights can be found in the PATENTS file in the same directory.
-       *
-       * 
-       * @format
-       */
+    if (activatePane) {
+      paneContainer.activate();
+    }
 
-exports.goToLocationInEditor = goToLocationInEditor;
-exports.observeNavigatingEditors = observeNavigatingEditors;
+    if (line != null) {
+      goToLocationInEditor(currentEditor, {
+        line,
+        column: column == null ? 0 : column,
+        center,
+        moveCursor
+      });
+    } else {
+      if (!(column == null)) {
+        throw new Error('goToLocation: Cannot specify just column');
+      }
+    }
 
-var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
+    return currentEditor;
+  } else {
+    // Obviously, calling goToLocation isn't a viable alternative here :P
+    // eslint-disable-next-line nuclide-internal/atom-apis
+    const editor = await atom.workspace.open(file, {
+      initialLine: line,
+      initialColumn: column,
+      searchAllPanes: true,
+      activatePane,
+      activateItem,
+      pending
+    }); // TODO(T28305560) Investigate offenders for this error
 
-var _idx;
+    if (editor == null) {
+      const tmp = {};
+      Error.captureStackTrace(tmp);
+      const error = Error(`atom.workspace.open returned null on ${file}`);
+      (0, _log4js().getLogger)('goToLocation').error(error);
+      throw error;
+    }
 
-function _load_idx() {
-  return _idx = _interopRequireDefault(require('idx'));
+    if (center && line != null) {
+      editor.scrollToBufferPosition([line, column], {
+        center: true
+      });
+    }
+
+    return editor;
+  }
 }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const goToLocationSubject = new _rxjsBundlesRxMinJs.Subject();
+const goToLocationSubject = new _RxMin.Subject();
 
 // Scrolls to the given line/column at the given editor
 // broadcasts the editor instance on an observable (subject) available
@@ -126,13 +134,19 @@ const goToLocationSubject = new _rxjsBundlesRxMinJs.Subject();
 function goToLocationInEditor(editor, options) {
   const center = options.center == null ? true : options.center;
   const moveCursor = options.moveCursor == null ? true : options.moveCursor;
-  const { line, column } = options;
+  const {
+    line,
+    column
+  } = options;
 
   if (moveCursor) {
     editor.setCursorBufferPosition([line, column]);
   }
+
   if (center) {
-    editor.scrollToBufferPosition([line, column], { center: true });
+    editor.scrollToBufferPosition([line, column], {
+      center: true
+    });
   }
 
   goToLocationSubject.next(editor);

@@ -1,0 +1,40 @@
+{
+  "_from": "https://www.atom.io/api/packages/language-elixir/versions/0.22.1/tarball",
+  "_id": "language-elixir@0.22.1",
+  "_inBundle": false,
+  "_integrity": "sha512-BoF4MgTpONxmITAD2Ft0fFI9zvIxLxF0+tXzAJ4YOF4mvKKbgxJ5YKLbUqO64pGV/x+Rdes3kfS+2lwpeNsd4A==",
+  "_location": "/language-elixir",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/language-elixir/versions/0.22.1/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/language-elixir/versions/0.22.1/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/language-elixir/versions/0.22.1/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/language-elixir/versions/0.22.1/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/language-elixir/versions/0.22.1/tarball",
+  "_shasum": "8277bcfedd97fc0f4962e50fad407c8835bf5dbe",
+  "_spec": "https://www.atom.io/api/packages/language-elixir/versions/0.22.1/tarball",
+  "_where": "/private/var/folders/m8/40cwfsss7c1dc98by346vzmw0000gn/T/apm-install-dir-11902-24015-41uaxr.xv31z",
+  "bugs": {
+    "url": "https://github.com/elixir-lang/language-elixir/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Elixir language support for Atom.",
+  "engines": {
+    "atom": ">= 0.189.0"
+  },
+  "homepage": "https://github.com/elixir-lang/language-elixir#readme",
+  "license": "Apache 2.0",
+  "name": "language-elixir",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elixir-lang/language-elixir.git"
+  },
+  "version": "0.22.1"
+}

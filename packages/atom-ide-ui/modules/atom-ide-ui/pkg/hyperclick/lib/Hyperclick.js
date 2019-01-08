@@ -1,135 +1,160 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _asyncToGenerator = _interopRequireDefault(require('async-to-generator'));
+function _HyperclickForTextEditor() {
+  const data = _interopRequireDefault(require("./HyperclickForTextEditor"));
 
-var _HyperclickForTextEditor;
+  _HyperclickForTextEditor = function () {
+    return data;
+  };
 
-function _load_HyperclickForTextEditor() {
-  return _HyperclickForTextEditor = _interopRequireDefault(require('./HyperclickForTextEditor'));
+  return data;
 }
 
-var _SuggestionList;
+function _SuggestionList() {
+  const data = _interopRequireDefault(require("./SuggestionList"));
 
-function _load_SuggestionList() {
-  return _SuggestionList = _interopRequireDefault(require('./SuggestionList'));
+  _SuggestionList = function () {
+    return data;
+  };
+
+  return data;
 }
 
-var _UniversalDisposable;
+function _UniversalDisposable() {
+  const data = _interopRequireDefault(require("../../../../nuclide-commons/UniversalDisposable"));
 
-function _load_UniversalDisposable() {
-  return _UniversalDisposable = _interopRequireDefault(require('nuclide-commons/UniversalDisposable'));
+  _UniversalDisposable = function () {
+    return data;
+  };
+
+  return data;
 }
 
-var _ProviderRegistry;
+function _ProviderRegistry() {
+  const data = _interopRequireDefault(require("../../../../nuclide-commons-atom/ProviderRegistry"));
 
-function _load_ProviderRegistry() {
-  return _ProviderRegistry = _interopRequireDefault(require('nuclide-commons-atom/ProviderRegistry'));
+  _ProviderRegistry = function () {
+    return data;
+  };
+
+  return data;
 }
 
-var _textEditor;
+function _range() {
+  const data = require("../../../../nuclide-commons-atom/range");
 
-function _load_textEditor() {
-  return _textEditor = require('nuclide-commons-atom/text-editor');
-}
+  _range = function () {
+    return data;
+  };
 
-var _range;
-
-function _load_range() {
-  return _range = require('nuclide-commons-atom/range');
+  return data;
 }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ *  strict-local
+ * @format
+ */
 
 /**
  * Construct this object to enable Hyperclick in the Atom workspace.
  * Call `dispose` to disable the feature.
  */
 class Hyperclick {
-
   constructor() {
-    this._providers = new (_ProviderRegistry || _load_ProviderRegistry()).default();
-
-    this._suggestionList = new (_SuggestionList || _load_SuggestionList()).default();
+    this._providers = new (_ProviderRegistry().default)();
+    this._suggestionList = new (_SuggestionList().default)();
     this._hyperclickForTextEditors = new Set();
-    this._textEditorSubscription = (0, (_textEditor || _load_textEditor()).observeTextEditors)(this.observeTextEditor.bind(this));
+    this._textEditorSubscription = atom.workspace.observeTextEditors(this.observeTextEditor.bind(this));
   }
 
   observeTextEditor(textEditor) {
-    const hyperclickForTextEditor = new (_HyperclickForTextEditor || _load_HyperclickForTextEditor()).default(textEditor, this);
+    const hyperclickForTextEditor = new (_HyperclickForTextEditor().default)(textEditor, this);
+
     this._hyperclickForTextEditors.add(hyperclickForTextEditor);
-    const disposable = new (_UniversalDisposable || _load_UniversalDisposable()).default(() => {
+
+    const disposable = new (_UniversalDisposable().default)(() => {
       hyperclickForTextEditor.dispose();
+
       this._hyperclickForTextEditors.delete(hyperclickForTextEditor);
     });
-    return new (_UniversalDisposable || _load_UniversalDisposable()).default(textEditor.onDidDestroy(() => disposable.dispose()), disposable);
+    return new (_UniversalDisposable().default)(textEditor.onDidDestroy(() => disposable.dispose()), disposable);
   }
 
   dispose() {
     this._suggestionList.hide();
+
     this._textEditorSubscription.dispose();
+
     this._hyperclickForTextEditors.forEach(hyperclick => hyperclick.dispose());
+
     this._hyperclickForTextEditors.clear();
   }
 
   addProvider(provider) {
     if (Array.isArray(provider)) {
-      return new (_UniversalDisposable || _load_UniversalDisposable()).default(...provider.map(p => this._providers.addProvider(p)));
+      return new (_UniversalDisposable().default)(...provider.map(p => this._providers.addProvider(p)));
     }
+
     return this._providers.addProvider(provider);
   }
-
   /**
    * Returns the first suggestion from the consumed providers.
    */
-  getSuggestion(textEditor, position) {
-    var _this = this;
-
-    return (0, _asyncToGenerator.default)(function* () {
-      for (const provider of _this._providers.getAllProvidersForEditor(textEditor)) {
-        let result;
-        if (provider.getSuggestion) {
-          // eslint-disable-next-line no-await-in-loop
-          result = yield provider.getSuggestion(textEditor, position);
-        } else if (provider.getSuggestionForWord) {
-          const match = (0, (_range || _load_range()).wordAtPosition)(textEditor, position, provider.wordRegExp);
-          if (match == null) {
-            continue;
-          }
-          const { wordMatch, range } = match;
-
-          if (!provider.getSuggestionForWord) {
-            throw new Error('Invariant violation: "provider.getSuggestionForWord"');
-          }
-          // eslint-disable-next-line no-await-in-loop
 
 
-          result = yield provider.getSuggestionForWord(textEditor, wordMatch[0], range);
-        } else {
-          throw new Error('Hyperclick must have either `getSuggestion` or `getSuggestionForWord`');
+  async getSuggestion(textEditor, position) {
+    for (const provider of this._providers.getAllProvidersForEditor(textEditor)) {
+      let result;
+
+      if (provider.getSuggestion) {
+        // eslint-disable-next-line no-await-in-loop
+        result = await provider.getSuggestion(textEditor, position);
+      } else if (provider.getSuggestionForWord) {
+        const match = (0, _range().wordAtPosition)(textEditor, position, provider.wordRegExp);
+
+        if (match == null) {
+          continue;
         }
-        if (result != null) {
-          return result;
-        }
+
+        const {
+          wordMatch,
+          range
+        } = match;
+
+        if (!provider.getSuggestionForWord) {
+          throw new Error("Invariant violation: \"provider.getSuggestionForWord\"");
+        } // eslint-disable-next-line no-await-in-loop
+
+
+        result = await provider.getSuggestionForWord(textEditor, wordMatch[0], range);
+      } else {
+        throw new Error('Hyperclick must have either `getSuggestion` or `getSuggestionForWord`');
       }
-    })();
+
+      if (result != null) {
+        return result;
+      }
+    }
   }
 
   showSuggestionList(textEditor, suggestion) {
     this._suggestionList.show(textEditor, suggestion);
   }
+
 }
-exports.default = Hyperclick; /**
-                               * Copyright (c) 2017-present, Facebook, Inc.
-                               * All rights reserved.
-                               *
-                               * This source code is licensed under the BSD-style license found in the
-                               * LICENSE file in the root directory of this source tree. An additional grant
-                               * of patent rights can be found in the PATENTS file in the same directory.
-                               *
-                               * 
-                               * @format
-                               */
+
+exports.default = Hyperclick;

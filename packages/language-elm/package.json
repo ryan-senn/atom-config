@@ -1,0 +1,65 @@
+{
+  "_from": "https://www.atom.io/api/packages/language-elm/versions/1.5.0/tarball",
+  "_id": "language-elm@1.5.0",
+  "_inBundle": false,
+  "_integrity": "sha512-4VSHeF7/F6BPHgH0rhG4nKxJFL6tX1kHLZDOEmduei869t2P51H9WkzKHD9z3MvR1DlJ7EWKjuoHsjxDTyjPfQ==",
+  "_location": "/language-elm",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/language-elm/versions/1.5.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/language-elm/versions/1.5.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/language-elm/versions/1.5.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/language-elm/versions/1.5.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/language-elm/versions/1.5.0/tarball",
+  "_shasum": "50819750b010ddcc4b205aac0767d7697e683cb3",
+  "_spec": "https://www.atom.io/api/packages/language-elm/versions/1.5.0/tarball",
+  "_where": "/private/var/folders/m8/40cwfsss7c1dc98by346vzmw0000gn/T/apm-install-dir-11901-1957-1or84ok.411",
+  "bugs": {
+    "url": "https://github.com/edubkendo/atom-elm/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "elm-oracle": "0.2.0"
+  },
+  "deprecated": false,
+  "description": "Syntax highlighting and autocompletion for the language Elm",
+  "devDependencies": {
+    "babel-eslint": "4.1.6",
+    "pre-commit": "1.1.2",
+    "standard": "5.4.1"
+  },
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "homepage": "https://github.com/edubkendo/atom-elm#readme",
+  "license": "MIT",
+  "main": "./lib/main",
+  "name": "language-elm",
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "provide"
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edubkendo/atom-elm.git"
+  },
+  "scripts": {
+    "test": "standard"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "atom"
+    ]
+  },
+  "version": "1.5.0"
+}

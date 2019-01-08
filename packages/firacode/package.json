@@ -1,63 +1,29 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/d-118227-28185-1jzib85.nc8al6usor/package.tgz",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/d-118227-28185-1jzib85.nc8al6usor/package.tgz",
-        "spec": "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/d-118227-28185-1jzib85.nc8al6usor/package.tgz",
-        "type": "local"
-      },
-      "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/apm-install-dir-118227-28185-cgbg3x.6d3khb0529"
-    ]
-  ],
-  "_from": "../d-118227-28185-1jzib85.nc8al6usor/package.tgz",
-  "_id": "firacode@0.3.0",
-  "_inCache": true,
-  "_location": "/firacode",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/d-118227-28185-1jzib85.nc8al6usor/package.tgz",
-    "scope": null,
-    "escapedName": null,
-    "name": null,
-    "rawSpec": "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/d-118227-28185-1jzib85.nc8al6usor/package.tgz",
-    "spec": "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/d-118227-28185-1jzib85.nc8al6usor/package.tgz",
-    "type": "local"
-  },
-  "_requiredBy": [
-    "#USER"
-  ],
-  "_resolved": "file:../d-118227-28185-1jzib85.nc8al6usor/package.tgz",
-  "_shasum": "dfbdcbcf7aa5a9f876c9114550afc9bc437acb7d",
-  "_shrinkwrap": null,
-  "_spec": "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/d-118227-28185-1jzib85.nc8al6usor/package.tgz",
-  "_where": "/private/var/folders/c7/bwy7gs5d5rl3ly2c1zblbzy00000gn/T/apm-install-dir-118227-28185-cgbg3x.6d3khb0529",
-  "bugs": {
-    "url": "https://github.com/adilparvez/atom-firacode/issues"
-  },
-  "dependencies": {},
-  "description": "Monospaced font with programming ligatures.",
-  "devDependencies": {},
-  "engines": {
-    "atom": ">=1.0.0 <2.0.0"
-  },
-  "homepage": "https://github.com/adilparvez/atom-firacode#readme",
+  "name": "firacode",
+  "version": "1.206.0",
+  "description": "Fira Code: monospaced font with programming ligatures",
   "keywords": [
     "font",
-    "ligature"
+    "Mozilla Fira Type Family",
+    "Fira",
+    "FiraMono"
   ],
-  "license": "MIT",
-  "main": "./lib/main",
-  "name": "firacode",
-  "optionalDependencies": {},
-  "readme": "# atom-firacode\n\nThis package bundles the [Fira Code](https://github.com/tonsky/FiraCode) font for atom.\n\nAll weights of the font are included.\n\nLigatures can be enabled per scope, using rules to match scopes.\n\nRules are applied left to right, for example\n- `*` = enable for all scopes\n- `*, not:text.*` = enable for all scopes, except for scopes under text\n- `source.haskell, source.purescript, source.elm` = enable for haskell, purescript, and elm\n- `*, not:source.*, source.js.*` = enable for all scopes, except for scopes under source, and enable for scopes under source.js\n\nLigatures are disabled in strings.\n\n![screenshot-editor](https://raw.githubusercontent.com/adilparvez/atom-firacode/master/screenshot-editor.png)\n",
-  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adilparvez/atom-firacode.git"
+    "url": "https://github.com/tonsky/FiraCode.git"
   },
-  "version": "0.3.0"
+  "author": "Nikita Prokopov <prokopov@gmail.com>",
+  "license": "OFL-1.1",
+  "bugs": {
+    "url": "https://github.com/tonsky/FiraCode/issues"
+  },
+  "homepage": "https://github.com/tonsky/FiraCode#readme",
+  "files": [
+    "distr"
+  ],
+  "apmInstallSource": {
+    "type": "git",
+    "source": "tonsky/firacode",
+    "sha": "d5a55e17e46def06d85bdf318ddd85150015127c"
+  }
 }

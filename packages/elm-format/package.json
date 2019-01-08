@@ -1,0 +1,58 @@
+{
+  "_from": "https://www.atom.io/api/packages/elm-format/versions/3.2.0/tarball",
+  "_id": "elm-format@3.2.0",
+  "_inBundle": false,
+  "_integrity": "sha512-boLsaEzqQ5j43ud3WPJQffSzqhnsZnlnu+ez7157CnnzAADM1W0OZ2m1xA0gKdK8LglttIzXTdhnpaChnOOeZA==",
+  "_location": "/elm-format",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/elm-format/versions/3.2.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/elm-format/versions/3.2.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/elm-format/versions/3.2.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/elm-format/versions/3.2.0/tarball"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://www.atom.io/api/packages/elm-format/versions/3.2.0/tarball",
+  "_shasum": "bdf8611c833552b1900a8fb314ea248240a2f22e",
+  "_spec": "https://www.atom.io/api/packages/elm-format/versions/3.2.0/tarball",
+  "_where": "/private/var/folders/m8/40cwfsss7c1dc98by346vzmw0000gn/T/apm-install-dir-11901-1977-ozgeg9.lh2f",
+  "bugs": {
+    "url": "https://github.com/humio/atom-elm-format/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "opn": "^5.0.0"
+  },
+  "deprecated": false,
+  "description": "Run elm-format in Atom",
+  "devDependencies": {
+    "eslint": "^3.14.0",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "pre-commit": "^1.1.2"
+  },
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/humio/atom-elm-format#readme",
+  "keywords": [
+    "elm",
+    "format",
+    "elm-format"
+  ],
+  "license": "MIT",
+  "main": "./src/index",
+  "name": "elm-format",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/humio/atom-elm-format.git"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "version": "3.2.0"
+}

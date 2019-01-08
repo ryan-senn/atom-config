@@ -1,18 +1,35 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = void 0;
 
-var _rxjsBundlesRxMinJs = require('rxjs/bundles/Rx.min.js');
+var _RxMin = require("rxjs/bundles/Rx.min.js");
 
-var _UniversalDisposable;
+function _UniversalDisposable() {
+  const data = _interopRequireDefault(require("./UniversalDisposable"));
 
-function _load_UniversalDisposable() {
-  return _UniversalDisposable = _interopRequireDefault(require('./UniversalDisposable'));
+  _UniversalDisposable = function () {
+    return data;
+  };
+
+  return data;
 }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * 
+ * @format
+ */
 
 /**
  * Exposes a simple API for a stateful model. This is similar to React's `state`/`setState()` API
@@ -30,7 +47,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *       _model = new Model({count: 0});
  *       increment(): void {
  *         const {count} = this._model.state;
- *         this._model.update({count: count + 1});
+ *         this._model.setState({count: count + 1});
  *       }
  *     }
  *
@@ -43,7 +60,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *       count: model.state.count,
  *       increment: () => {
  *         const {count} = model.state;
- *         model.update({count: count + 1})
+ *         model.setState({count: count + 1})
  *       },
  *     };
  *
@@ -52,13 +69,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * capabilities, we can always switch to full-blown Redux without having to refactor a ton of stuff.
  */
 class Model {
-
   constructor(initialState) {
-    this._states = new _rxjsBundlesRxMinJs.BehaviorSubject(initialState);
+    this._states = new _RxMin.BehaviorSubject(initialState);
   }
 
   setState(newState) {
     const nextState = Object.assign({}, this.state, newState);
+
     this._states.next(nextState);
   }
 
@@ -67,21 +84,15 @@ class Model {
   }
 
   subscribe(cb) {
-    return new (_UniversalDisposable || _load_UniversalDisposable()).default(this.toObservable().subscribe({ next: cb }));
+    return new (_UniversalDisposable().default)(this.toObservable().subscribe({
+      next: cb
+    }));
   }
 
   toObservable() {
     return this._states.distinctUntilChanged();
   }
+
 }
-exports.default = Model; /**
-                          * Copyright (c) 2017-present, Facebook, Inc.
-                          * All rights reserved.
-                          *
-                          * This source code is licensed under the BSD-style license found in the
-                          * LICENSE file in the root directory of this source tree. An additional grant
-                          * of patent rights can be found in the PATENTS file in the same directory.
-                          *
-                          * 
-                          * @format
-                          */
+
+exports.default = Model;

@@ -10,7 +10,16 @@
     ]
   editor:
     fontFamily: "FiraCode-Light"
+    fontSize: 15
     lineHeight: 1.8
     tabLength: 4
   "exception-reporting":
     userId: "694db122-05c2-4d5a-b75a-6c1a0d53842f"
+  firacode:
+    scopes: [
+      "*"
+      "not:source.*"
+      "source.js.*"
+    ]
+  "language-elm":
+    autocompleteEnabled: false

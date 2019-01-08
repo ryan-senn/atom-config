@@ -4,6 +4,25 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [keepachan
 
 ## [unreleased]
 
+
+## [0.6.1] - 2018-04-14
+### Fixed
+- Check that item is considered valid before adding it to recent items list [#33](https://github.com/viddo/recent-files-fuzzy-finder/issues/33)
+
+
+## [0.6.0] - 2018-04-08
+### Fixed
+- Fix confirm selection working for +v1.26-beta when having multiple project folders open
+
+### Removed
+- `underscore-plus`, no longer necessary
+
+
+## [0.5.0] - 2018-03-31
+### Changed
+- Make package compatible with new internal fuzzy-finder format as of Atom v1.126-beta [#31](https://github.com/viddo/recent-files-fuzzy-finder/pull/31)
+
+
 ## [0.4.0] - 2017-12-07
 ### Changed
 - Updates all deps [#25](https://github.com/viddo/recent-files-fuzzy-finder/pull/25)
